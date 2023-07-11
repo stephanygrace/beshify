@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "../src/App.css";
+import Copy from "../src/copy.png";
+import Github from "../src/github.png";
 
-function App() {
+const App = () => {
+  const [inputText, setInputText] = useState("");
+
+  const handleInputChange = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === " ") {
+      setInputText((prevText) => prevText + " 🤸 ");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div>
+        <h1 className="title"> 🤸 Beshify 🤸</h1>
+      </div>
+      <div>
+        <input
+          type="text"
+          value={inputText}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className="input"
+        />
+        <button>
+          <img src={Copy} alt="" className="copy" />
+        </button>
+      </div>
+      <div className="footer">
+        <h3>
+          © Stephany Grace Tayong
+          <div className="socmeds">
+            <img src={Github} alt="" />
+          </div>
+        </h3>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

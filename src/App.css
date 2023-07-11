@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+
+body {
+  background-color: #061229;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  font-family: 'Kalam';
+  color: #fff;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding:10px;
+  border-radius:10px;
+  width: 30rem;
+  height: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.input input {
+  font-size: 2rem;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.copy {
+  height: 2rem;
+  display: inline-flex;
+}
+
+.footer {
+  color: #fff;
+}
+
+.footer .socmeds img{
+  width: 2rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
