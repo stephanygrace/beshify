@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import EmojiPicker from "emoji-picker-react";
 import "react-toastify/dist/ReactToastify.css";
+import copyIcon from "../src/copy.png";
+import githubIcon from "../src/github.png";
+import clearIcon from "../src/erase.png";
 import "../src/App.css";
-import Copy from "../src/copy.png";
-import Github from "../src/github.png";
 
 const App = () => {
   const [inputText, setInputText] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [chosenEmoji, setChosenEmoji] = useState(" 🤸 ");
+  const [chosenEmoji, setChosenEmoji] = useState("🤸");
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
@@ -21,8 +22,9 @@ const App = () => {
   };
 
   const handleEmojiClick = (emojiObject) => {
-    setInputText((prevText) => prevText + emojiObject.emoji);
-    setChosenEmoji(emojiObject.emoji);
+    const { emoji } = emojiObject;
+    setInputText((prevText) => prevText + emoji);
+    setChosenEmoji(emoji);
   };
 
   const handleKeyDown = (e) => {
@@ -31,15 +33,21 @@ const App = () => {
     }
   };
 
+  const toggleEmojiPicker = () => {
+    setShowEmojiPicker(!showEmojiPicker);
+  };
+
+  const handleClearInput = () => {
+    setInputText("");
+  };
+
   return (
     <div className='container'>
       <div>
-        <h1 className='title'> 🤸 Beshify 🤸</h1>
+        <h1 className='title'>🤸 Beshify 🤸</h1>
       </div>
       <div className='body-beshify'>
-        <button
-          className='emoji-picker'
-          onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
+        <button className='emoji-picker' onClick={toggleEmojiPicker}>
           {chosenEmoji || "Choose Emoji"}
         </button>
         <input
@@ -50,7 +58,10 @@ const App = () => {
           className='input'
         />
         <button onClick={handleCopyClick} className='btn-copy'>
-          <img src={Copy} alt='' className='copy' />
+          <img src={copyIcon} alt='Copy' className='copy' />
+        </button>
+        <button onClick={handleClearInput} className='btn-clear'>
+          <img src={clearIcon} alt='Clear' className='clear' />
         </button>
       </div>
       <div className='show-emojipicker'>
@@ -61,9 +72,9 @@ const App = () => {
           href='https://github.com/stephanygrace'
           target='_blank'
           rel='noreferrer'>
-          <img src={Github} alt='' />
+          <img src={githubIcon} alt='GitHub' />
         </a>
-        <span> Stephany Grace Tayong </span>
+        <span>Stephany Grace Tayong</span>
       </div>
       <ToastContainer autoClose={1000} />
     </div>

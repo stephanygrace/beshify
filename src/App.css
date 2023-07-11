@@ -8,7 +8,6 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   padding-top: 2%;
 }
@@ -17,7 +16,7 @@ body {
   font-family: 'Kalam';
   color: #fff;
   font-size: 4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .body-beshify {
@@ -40,9 +39,11 @@ body {
 
 }
 
-.copy {
-  height: 2rem;
+.copy, .clear {
+  height: 1.5rem;
+  margin-left: 10px;
 }
+
 
 .footer {
   color: #fff;
@@ -74,11 +75,28 @@ body {
   border-radius: 5px;
 }
 
+.btn-clear {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn-clear:hover:after {
+  content: "Clear";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+}
 
 span {
   padding-bottom: px;
   color: #fff;
-  padding-left: 5px;
+  margin-left: 10px;
 }
 
 .emoji-picker {
@@ -87,6 +105,7 @@ span {
   position: relative;
   background-color: #fff;
   width: 3rem;
+  margin-right: 10px;
 }
 
 .emoji-picker:hover::after{
